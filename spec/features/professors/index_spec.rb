@@ -2,16 +2,16 @@ require 'rails_helper'
 
 describe 'professor index page' do
   it 'displays all professors and their information' do
-    professor1 = Professor.create!(name: "prof 1", age: 50, specialty: "first thing")
-    professor2 = Professor.create!(name: "prof 2", age: 55, specialty: "second thing")
+    snape = Professor.create(name: "Severus Snape", age: 45, specialty: "Potions")
+    hagarid = Professor.create(name: "Rubeus Hagrid", age: 38 , specialty: "Care of Magical Creatures")
 
     visit '/professors'
 
-    expect(page).to have_content("Name: #{professor1.name}")
-    expect(page).to have_content("Age: #{professor1.age}")
-    expect(page).to have_content("Specialty: #{professor1.specialty}")
-    expect(page).to have_content("Name: #{professor2.name}")
-    expect(page).to have_content("Age: #{professor2.age}")
-    expect(page).to have_content("Specialty: #{professor2.specialty}")
+    expect(page).to have_content("Name: #{snape.name}")
+    expect(page).to have_content("Age: #{snape.age}")
+    expect(page).to have_content("Specialty: #{snape.specialty}")
+    expect(page).to have_content("Name: #{hagarid.name}")
+    expect(page).to have_content("Age: #{hagarid.age}")
+    expect(page).to have_content("Specialty: #{hagarid.specialty}")
   end
 end
